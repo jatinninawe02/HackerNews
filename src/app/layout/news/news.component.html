@@ -1,0 +1,27 @@
+<div class="main-content">
+  <!-- <p class="job-header" *ngIf="storiesType === 'jobs'">
+    These are jobs at startups that were funded by Y Combinator.
+    You can also get a job at a YC startup through <a href="https://triplebyte.com/?ref=yc_jobs"
+      target="_blank">Triplebyte</a>.
+  </p> -->
+  <div class="loading-section" *ngIf="!items">
+    <div class="loader">
+    </div>
+  </div>
+  <div *ngIf="items">
+    <ol *ngIf="storiesType !== 'new'" [class.list-margin]="storiesType !== 'jobs'" start="{{ listStart }}">
+      <li *ngFor="let item of items" class="post">
+        <app-article class="item-block" [item]="item"></app-article>
+      </li>
+    </ol>
+    <div class="nav">
+      <a *ngIf="listStart !== 1" [routerLink]="['/' + storiesType, pageNum - 1]" routerLinkActive="active" class="prev">
+        ‹ Prev
+      </a>
+      <a *ngIf="items.length === 30" [routerLink]="['/' + storiesType, pageNum + 1]" routerLinkActive="active"
+        class="more">
+        More ›
+      </a>
+    </div>
+  </div>
+</div>

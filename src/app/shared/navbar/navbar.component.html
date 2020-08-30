@@ -1,0 +1,32 @@
+<header>
+  <div id="header">
+    <a class="home-link" routerLink="/news/1" routerLinkActive="active">
+      <img class="logo" src="assets/images/y18.gif">
+    </a>
+    <div class="header-text">
+      <div class="left">
+        <h1 class="name">
+          <a routerLink="/news/1" class="app-title">Hacker News</a>
+        </h1>
+        <!-- <span class="header-nav">
+          <a routerLink="/newest/1">new</a>
+          <span class="divider">
+            |
+          </span>
+          <a routerLink="/show/1">show</a>
+          <span class="divider">
+            |
+          </span>
+          <a routerLink="/ask/1">ask</a>
+          <span class="divider">
+            |
+          </span>
+          <a routerLink="/jobs/1">jobs</a>
+        </span> -->
+      </div>
+      <div class="info">
+        <a [routerLink]="['/bookmarks']">Bookmarks [{{bookmarkStorageLength}}]</a>
+      </div>
+    </div>
+  </div>
+</header>

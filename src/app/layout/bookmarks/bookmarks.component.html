@@ -1,0 +1,22 @@
+<div class="main-content">
+  <div class="loading-section" *ngIf="!bookmarkStorage">
+    <div class="loader">
+    </div>
+  </div>
+  <div *ngIf="bookmarkStorage">
+    <ol>
+      <li *ngFor="let item of bookmarkStorage" class="post">
+        <app-article class="item-block" [item]="item"></app-article>
+      </li>
+    </ol>
+    <!-- <div class="nav">
+      <a *ngIf="listStart !== 1" [routerLink]="['/' + storiesType, pageNum - 1]" routerLinkActive="active" class="prev">
+        ‹ Prev
+      </a>
+      <a *ngIf="bookmarkStorage.length === 30" [routerLink]="['/' + storiesType, pageNum + 1]" routerLinkActive="active"
+        class="more">
+        More ›
+      </a>
+    </div> -->
+  </div>
+</div>

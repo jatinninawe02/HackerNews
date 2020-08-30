@@ -1,0 +1,22 @@
+<div *ngIf="!comment.deleted">
+  <div class="meta" [class.meta-collapse]="collapse">
+    <span style="cursor: pointer;" (click)="collapse = !collapse">{{collapse ? '[+] ' : '[-] '}}</span> 
+    <a [routerLink]="['/user', comment.user]" routerLinkActive="active">{{comment.user}}</a>
+    <span class="time">{{comment.time_ago}}</span>
+  </div>
+  <div class="comment-tree">
+    <div [hidden]="collapse">
+      <p style="cursor: pointer;" [innerHTML]="comment.content"></p>
+      <ul class="subtree">
+        <li *ngFor="let subComment of comment.comments"> 
+          <app-comment [comment]="subComment"></app-comment>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div *ngIf="comment.deleted">
+  <div class="deleted-meta">
+    <span style="cursor: pointer;">[deleted]</span> | Comment Deleted
+  </div>
+</div>
